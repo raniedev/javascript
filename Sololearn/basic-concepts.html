@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Learning Javascript through Sololearn</title>
+    </head>
+    <body>
+        <script>
+            //The document.write() method should be used only for testing. Other output mechanisms appear in the upcoming lessons.
+            document.write("Hello world!");
+            //Just like in HTML, we can use HTML tags to format text in Javascript. For example, we can output the text as a heading.
+            document.write("<h2>Using HTML tags in document.write()</h2>");
+            /*The equal sign (=) is called the "assignment" operator, rather than an "equal to" operator. For example,
+            x = y will assign the value of y to x.
+
+            A variable can be declared without a value. The value might require some calculation, something that will be provided
+            later, like user input. A variable declared without a value will have the value undefined.*/
+            var variable_x; //this will be undefined
+
+            //Assigning a value to a variable
+            var variable_y = 100;
+            document.write("X value: " + variable_x + "<br/>Y value: " + variable_y);
+
+            //Javascript variable names are case-sensitive. In the example below we changed x to uppercase:
+            //document.write(variable_X); //this will not work, because I don't have a variable called "variable_X" I've a called "variable_x", the letter 'x' in lower case.
+            
+            /*
+            Naming rules
+                - The first character MUST BE a letter, an underscore(_), or a dollar sign($). Subsequent characters may be letters, digits, underscores, or dollar signs.
+                - Numbers are NOT ALLOWED as the first character.
+                - Variable names CANNOT include a mathematical or logical operator in the name. For instance, 2*something or this+that;
+                - Javascript names MUST NOT CONTAIN SPACES.
+                - Hyphens are not allowed in Javascript. It's reserved for subtractions.
+            Other rules
+                - You MUST NOT use any SPECIAL SYMBOLS, like my#num, num%, etc.
+                - Be sure that you do not use any the following Javascript reserved words
+            Reserved words in Javascript
+            abstract        else            instanceof      switch
+            boolean         enum            int             synchronized
+            break           export          interface       this
+            byte            extends         long            throw
+            case            false           native          throws
+            catch           final           new             transient
+            char            finally         null            true
+            class           float           package         try
+            const           for             private         typeof
+            continue        function        protected       var
+            debugger        goto            public          void
+            default         if              return          volatile
+            delete          implements      short           while
+            do              import          static          with
+            double          in              super   
+            */
+
+            /*Data Types
+            The term data type refers to the types of values with which a program can work. Javascript variables can hold many
+            data types, such as numbers, strings, arrays and more
+            
+            Unlike many other programming languages, Javascript does not define different types of numbers, like integers, short,
+            long, floating-point, etc.
+            Javascript numbers can be written with or without decimals, are always stored as double precision floating point numbers*/
+            var number_x = 42;
+            var number_y = 55.4;
+            document.write("<br/><br/>X number value: " + number_x + "<br/>Y number value: " + number_y);
+            
+            /*Strings
+            Javascript strings are used for storing and manipulating text. A string can be any text that appears within
+            quotes. You can use single or double quotes.*/
+            var name = 'Anna';
+            var text = "There's royal blood in us.";
+            document.write("<br/><br/>Name: " + name + "<br/>Text: " + text);
+            
+            //Using quotes in strings: "'simple quotes'", '"double quotes"'
+            document.write("<br/><br/>I'm putting a simple quote in a string command.");
+            document.write("<br/>Now, I'" + 'll put a double quote in the next word, "here"');
+            
+            /*As strings must be written within quotes, quotes inside the string must be handled. The backslash(\) espace
+            character turns special characters into string characters.*/
+            document.write('<br/>Learning a little more, I\'m using some javascript tricks and making my code more eligible.');
+
+            /*
+            The escape character (\) can also be used to insert other special characters into a string. These special
+            characters can be added to a text string using the backslash sign.
+                        CODE            OUTPUT
+                        \'              single quote
+                        \"              double quote
+                        \\              backslash
+                        \n              new line
+                        \r              carriage return
+                        \t              tab
+                        \b              backspace
+                        \f              form feed
+            
+            If you begin a string with a single quote, then you should also end it with a single quote, the same rule applies
+            to double quotes. Otherwise, Javascript will become confused.
+
+            USEFUL TEXT ABOUT ESCAPE CHARACTERS
+            The 6 escape characters above were originally designed to control typewriters, teletypes, and fax machines.
+            They do not make any sense in HTML. Font: https://www.w3schools.com/js/js_strings.asp
+            */
+            
+
+            /*
+            Booleans
+            In Javascript boolean, you have one of two values, either true or false. These are useful when you need a data type that
+            can only have one of two values, such as Yes/No, On/Off, True/False.
+            Examples:
+            */
+            var isConnected = true;
+            var isSecured = false;
+
+            //The boolean value of 0(zero), null, undefined, empty string is false. Everything with a "real" value is true.
+
+            /*
+            Math Operators
+            Arithmetic Operators perform functions on numbers(literals or variables).
+            
+            Operator            Description             Example
+            +                   Adition                 25 + 5 = 30
+            -                   Subtraction             25 - 5 = 20
+            *                   Multiplication          10 * 20 = 200
+            /                   Division                20 / 2 = 10
+            %                   Modulus                 56 % 3 = 2
+            ++                  Increment               var a = 10; a++; Now a = 11
+            --                  Decrement               var a = 10; a--; Now a = 9
+            
+            In Javascript, the modulus operator is used not only on integers, but also on floating point numbers.
+            26.5 % 6 = 2.5
+
+            As in school mathematics, you can change the order of the arithmetic operations by using parentheses.
+            Example: var x = (100 + 50) * 3;
+            */
+
+            document.write("<br/><br/>Adition: 35 + 5 = " + (35 + 5));
+            document.write("<br/>Subtraction: 12 - 3 = " + (12 - 3));
+            document.write("<br/>Multiplication: 5 * 5 = " + (5 * 5));
+            document.write("<br/>Division: 100 / 2 = " + (100 / 2));
+            document.write("<br/>Integer Modulus or Float Modulus(whatever): 9 % 4 = " + (9 % 4) + "or 10.56 % 4 = " + (9.6 % 4));
+            var number_a = 99;
+            document.write("<br/>Number A value: " + number_a);
+            number_a++;
+            document.write("<br/>Increment: Number A = " + (number_a));
+            number_a--;
+            document.write("<br/>Decrement: Number A = " + (number_a));
+
+            /*
+            Increment & Decrement
+            Increment++
+            The increment operator increments the numeric value of its operand by one. If placed before the operand, it returns
+            the incremented value. If placed after the operand, it returns the original value and then increments the operand.
+
+            Decrement--
+            The decrement operator decrements the numeric value of its operand by one. If placed before the operand, it returns the
+            decrement value. If placed after the operand, it returns the original value and then decrements the operand.
+
+            Some examples:
+            Operator            Description       
+            var++               Post Increment
+            ++var               Pre Increment
+            var--               Post Decrement
+            --var               Pre Decrement
+            
+            */
+            var number_n;
+            var number_m;
+            document.write("<br/><br/>Step 1: The N number is receiving the value 30.");
+            number_n = 30;
+            document.write("<br/>Step 2: The number_m variable receives the number_n variable with post increment.");
+            number_m = number_n++;
+            document.write("<br/>Step 3: The result is the same, number_m: " + number_m);
+            document.write("<br/>Explanation: The value is the same because the POS increment operator only has effect in the next instruction and the current value is catched by the assignment operator. Firstly occurs the assignment, for then the increment be fired");
+
+            document.write("<br/><br/>Step 1: Charging the N variable I'll assignment the value 15 to the number_n variable.");
+            number_n = 15;
+            document.write("<br/>Step 2: Now the number_m variable receives a PRE increment value from the number_n variable.");
+            number_m = ++number_n;
+            document.write("<br/>Step 3: Pre increment means, INCREMENT FIRST, IN THE NEXT STEP OCCURS THE ASSIGNMENT.");
+            document.write("<br/>The same thing occurs with the DECREMENT OPERATOR, obvious that mathematically in opposite route.")
+
+            /*
+            Assignment Operators
+                Operator            Example             is equivalent to
+                =                   x = y               x = y
+                +=                  x += y              x = x + y
+                -=                  x -= y              x = x - y
+                *=                  x *= y              x = x * y
+                /=                  x /= y              x = x / y
+                %=                  x %= y              x = x % y
+            */
+            var number_1 = 15;
+            var number_2 = 4;
+            document.write("<br/><br/>Number 1: " + number_1 + "| Number 2: " + number_2);
+            document.write("<br/>Attributing number1 += number2");
+            number_1 += number_2;
+            document.write("<br/><br/>Number 1: " + number_1 + "| Number 2: " + number_2);
+            document.write("<br/>Attributing number1 -= number2");
+            number_1 -= number_2;
+            document.write("<br/><br/>Number 1: " + number_1 + "| Number 2: " + number_2);
+            document.write("<br/>Attributing number1 *= number2");
+            number_1 *= number_2;
+            document.write("<br/><br/>Number 1: " + number_1 + "| Number 2: " + number_2);
+            document.write("<br/>Attributing number1 /= number2");
+            number_1 /= number_2;
+            document.write("<br/><br/>Number 1: " + number_1 + "| Number 2: " + number_2);
+            document.write("<br/>Attributing number1 %= number2");
+            number_1 %= number_2;
+            document.write("<br/><br/>Number 1: " + number_1 + "| Number 2: " + number_2);
+
+            /*
+            Comparison Operators
+            Comparison operators are used in logical statements to determine equality or difference between
+            variables or values. They return true or false.
+
+            The equal to(==) operator checks wheter the operands' values are equal.
+            */
+
+            document.write("<br/><br/>Is the value " + number_1 + " equal to " + number_2 + "? A: " + (number_1 == number_2));
+
+            /*
+            The table below explains the comparison operators
+            Operator            Description             Example
+            ==                  Equal to                5 == 10 false
+            ===     Identical(equal and of same type)   5 === 10 false
+            !=                  Not Equal to            5 != 10 true
+            !==                 Not Identical           10 !== 10 false
+            >                   Greater than            10 > 5 true
+            >=            Greater than or equal to      10 >= 5 true
+            <                   Less than               10 < 5 false
+            <=            Less than or equal to         10 <= 5 false
+
+            Whe using operators, be sure that the arguments are of the same data type, numbers should be compared
+            with numbers, strings with strings, and so on
+            */
+            document.write("<br/><br/>Is the number 15 equal to the number 5? A: " + (15 == 5));
+            document.write("<br/>Is the number 5 identical to the number 5.0? A: " + (5 === 5.0));
+            document.write("<br/>Is the number 13 not equal to the number 13? A: " + (13 != 13));
+            document.write("<br/>Is the number 2 not identical to the number 2.2? A: " + (2 !== 2.2));
+            document.write("<br/>Is the number 4.13 greater than the number 5? A: " + (4.13 > 5));
+            document.write("<br/>Is the number 1 greater than or equal to the number 1? A: " + (1 >= 1));
+            document.write("<br/>Is the number 33 less than the number 115? A: " + (33 < 115));
+            document.write("<br/>Is the number 1.5 less than or equal to the number 1.4? A: " + (1.5 < 1.4));
+
+            /*Logical Operators
+            
+            Logical operators, also known as Boolean operators, evaluate the expression and return true or false.
+            The table below explains the logical operators(AND, OR, NOT).
+            
+            Logical Operators       Description
+            &&                      Returns true, if both operands are true
+            ||                      Returns true, if one of the operands is true
+            !                       Returns true, if the operand is false, and false, if the operand is true
+            */
+            document.write("<br/><br/>Comparing true && true, Result: " + (true && true));
+            document.write("<br/>Comparing true && false, Result: " + (true && false));
+            document.write("<br/>Comparing false && false, Result: " + (false && false));
+            document.write("<br/>Comparing true || true, Result: " + (true || true));
+            document.write("<br/>Comparing true || false, Result: " + (true || false));
+            document.write("<br/>Comparing false || false, Result: " + (false && false));
+            document.write("<br/>Denying the boolean value true, Result: " + (!true));
+            document.write("<br/>Denying the boolean value false, Result: " + (!false));
+
+            /*
+            Logical Operators
+            
+            In the following example, we have connected two Boolean expressions with the AND operator.
+            (4 > 2) && (10 < 15)
+
+            For this expression to be true, both conditions must be true.
+            - The first condition determines whether 4 is greater than 2, which is true.
+            - The second condition determines whether 10 is less than 15, which is also true.
+            Based on these results, the whole expression is found to be true.
+
+            (4 > 2) && (10 < 15)
+            (true) && (true)
+            true
+            
+            
+            Conditional (Ternary) Operator
+            Anothe Javascript conditional operator assigns a value to a variable, based on some condition.
+            Syntax: variable = (condition) ? value_if_true : value_if_false
+            */
+            var ternary_value = (15 > 5) ? "This value is true" : "This value is false";
+            var ternary_value2 = (23 > 775) ? "This value is true" : "This value is false";
+
+            document.write("<br/><br/> 15 > 5: " + ternary_value);
+            document.write("<br/> 23 > 775: " + ternary_value2);
+            
+            /*String Operators
+            The most useful operator for strings is concatenation, represented by the + sign.
+            Concatenation can be used to build strings by joining together multiple strings, or by joining
+            strings with other types:
+            */
+            document.write("<br/><br/>This is the first pharse. " + "This part is joining through a concatenation making a only sentence.");
+
+            //Numbers in quotes are treated as strings "42" is not the number 42, it's a string that includes two characters, 4 and 2.
+
+        </script>
+    </body>
+</html>

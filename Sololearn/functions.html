@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Learning Javascript through Sololearn</title>
+    </head>
+    <body>
+        <script>
+            /*User-Defined Function
+            Javascript functions
+
+            A javascript function is a block of code designed to perform a particular task. The main advantages
+            of using functions. Code reuse: Define the code once, and use it many times. Use the same code many
+            times with different arguments, to produce different results.
+            
+            A Javascript function is executed when "something" invokes, or calls, it.
+            
+            ---------------------------------------------------------------------------------------------------
+
+            Defining a function
+
+            To define a Javascript function, use the function keyword, followed by a name, followed by a set of 
+            parantheses().
+
+            The code to be executed by the function is placed inside curly brackets {}.
+
+
+            Functions names can contain letters, digits, underscores, and dollar signs (same rules as variables).
+
+            */
+            function functionName(){
+                //code to be executed
+            }
+            
+            /*
+            Calling a function
+            
+            To execute the function, you need to call it.
+            To call a function, start with the name of the function, then follow it with the arguments in parentheses.
+
+            Example:*/
+            function myFunction(){
+                document.write("Calling a function...");
+            }
+
+            myFunction(); //Alerts "Calling a function!"
+            /*
+            Always remember to end the statement with a semicolon after calling the function.
+            Once the function is defined, Javascript allows you to call it as many times as you want to.
+
+            
+            -----------------------------------------------------------------------------------------------------------
+
+            
+            Function Parameters
+            
+            Function can take parameters. function parameters are the names listed in the function's definition.
+
+            Syntax:*/
+            function name(param1, param2, param3){
+                //some code
+            }
+
+            /*As with variables, parameters should be given names, which are separated by commas within the parentheses.
+            
+            Using parameters
+            After defining the parameters, you can use them inside the function.*/
+            function sayHello(name){
+                document.write("<br/>Hi, " + name + "!");
+            }
+            sayHello("Helen");
+
+            /*
+            This function takes in one parameter, which is called name. When calling the function, provide the parameter's
+            value(argument) inside the parentheses.
+
+            Function arguments are the real values passed to(and received by) the function.
+            
+            --------------------------------------------------------------------------------------------------------------
+            [USING MULTIPLE PARAMETERS WITH FUNCTIONS]
+
+            Multiple Parameters
+            You can define multiple parameters for a function by comma-separating them.
+            */
+            function example(name, age){
+                document.write("<br/>My name is " + name + " and I've " + age + " years old.");
+            }
+            example("Aline", "51");
+
+            /*
+            Multiple Parameters
+            After defining the function, you can call it as many times as needed. Javascript functions do not check
+            the number of arguments received.
+
+            If a function is called with missing arguments(fewer than declared), the missing values are set to undefined,
+            which indicates that a variable has not been assigned a value.
+
+            [THE RETURN STATEMENT]
+            Function Return
+                A function can have an optional return statement. It's used to return a value from the function. This statement
+                is useful when making calculations that require a result.
+            
+            When Javascript reaches a return statement, the function stops executing.
+            
+
+            Use the return statement to return a value.
+            For example, let's calculate the product of two numbers, and return the result.
+            */
+            function myProduct(number_a, number_b){
+                return number_a * number_b;
+            }
+            document.write("<br/>The product is: " + myProduct(5, 6));
+            /*If you don't return anything from a function, it'll return undefined.
+            
+            [ALERT, PROMPT, CONFIRM]
+            The alert box
+                Javascript offers three type of popup boxes, the Alert, Prompt and Confirm boxes.
+            
+            Alert Box
+                An alert box is used when you want to ensure that information gets through to the user. When an alert
+            box pops up, the user must click OK to proceed. The alert function takes a single parameter, which is the
+            text displayed in the popup box.
+
+            Example:
+            */
+            alert("Do you really want to leave this page?");
+
+            /*To displayed line breaks within a popup box, use a backslash followed by the charaacter n.*/
+            alert("Hello\nHow are you?"); // Be careful when using alert boxes, as the user can continue using the page only after clicking OK.
+
+            /*
+            [PROMPT BOX]
+                A prompt box is often used to have the user input a value before entering a page. When a prompt box pops up,
+            the user will have to click either OK or Cancel to proceed after entering the input value. If the user clicks OK,
+            the box returns the input value. If the user clicks Cancel, the box returns null. 
+
+            The prompt() method takes two parameters.
+            - The first is the label, which you want to display the text box.
+            - The second is a default string to display in the text box(optional).
+
+            Example:
+            */
+            var user = prompt("Please enter your name: ");
+            alert(user);
+
+            /*
+            [CONFIRM BOX]
+                A confirm box is often used to have the user verify or accept something. When a confirm box pops up, the user
+            must click either OK or Cancel to proceed. If the user clicks OK, the box returns true. If the user clicks Cancel,
+            the box returns false.
+
+            Example:
+            */
+            var result = confirm("Do you really want to leave this page?");
+            if(result == true){
+                alert("Thanks for visiting.");
+            }else{
+                alert("Thanks for staying with us.");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Learning Javascript through Sololearn</title>
+    </head>
+    <body>
+        <script>
+            /*The if statement
+            
+            Very often when you write code, you want to perform different actions based on
+            different conditions.
+            You can do this by using conditional statements in your code.
+            
+            Use if to specify a block of code that will be executed if a special condition is true*/
+            if(5 > 2){
+                document.write("This text appears because the if statement condition is true.");
+            }
+            /*
+            if(3 < 1){
+                document.write("Text"); // this block is skipped
+            }
+            
+            As the condition evaluates to false, the alert statement is skipped and the program continues
+            with the line after the if statement's closing curly brace.
+
+            Note that if is in lowercase letters. Uppercase letters (If, IF or iF) will generate an error.
+            
+            
+            The else statement
+            Use the else statement to specify a block of code that will execute if the condition is false.
+            if(expression){
+                //executed if condition is true
+            }else{
+                //executed if condition is false
+            }
+            */
+            if(3 < 1){
+                document.write("<br/>True instruction");
+            }else{
+                document.write("<br/>False instruction");
+            }
+            
+            /*You can use the else if statement to specify a new condition if the first condition is false.
+            
+            if(expression 1){
+
+            }else if(expression 2){
+
+            }else if(expression N){
+
+            }else{
+
+            }
+            
+
+            The Switch Statement
+            In cases when you need to test for multiple conditions, writing if else statements for each
+            condition might not be the best solution. The switch statement is used to perform different
+            actions based on different conditions.
+
+            Syntax:
+                Switch(expression){
+                    case x:
+                        statements;
+                        break;
+                    case y:
+                        statements;
+                        break;
+                    default:
+                        statements;
+                }
+            
+            The switch statement is evaluated once. The value of the expression is compared with the values of
+            each case. If there is a match, the associated block of code is executed.
+
+            You can achieve the same result with multiple if...else statements, but the switch statement is more
+            effective in such situations.
+            */
+            var day = 3;
+            switch(day){
+                case 1:
+                    document.write("<br/>Today's Sunday");
+                    break;
+                case 2:
+                    document.write("<br/>Today's Monday");
+                    break;
+                case 3:
+                    document.write("<br/>Today's Tuesday");
+                    break;
+                default:
+                    document.write("<br/>I don't know day.");
+            } //You can have as many case statements as needed
+
+            /*
+            The Break Statement
+            - Whe Javacript code reaches a break keyword, it breaks out of the switch block. This will stop the
+            execution of more code and case testing inside the block.
+            - Usually, a break should be put in each case statement.
+            
+            The Default Key word
+            - The default keyword specifies the code to run if there is no case match
+            - The default block can be omitted, if there is no need to handle the case when no match is found.
+            
+            
+            Loops
+                Loops can be execute a block of code a number of times. They are handy in cases in which you want to run
+            the same code repeatedly, adding a different value each time.
+                Javascript has three types of loops: 'for', 'while', and 'do while'.
+                The 'for' loop is commonly used when creating a loop.
+            
+            The syntax:
+                for(statement 1; statement 2; statement 3){
+                    code block to be executed
+                }
+            
+            Statement 1: is executed before the loop(the code block) stars.
+            Statement 2: defines the condition for running the loop(the code block).
+            Statement 3: is executed each time after loop(the code block) has been executed.
+
+            As you can see, the classic for loop has three components, or statements.
+            */
+            document.write("<br/>The example below creates a for loop that prints numbers 1 through 5.<br/>");
+            for(loopX = 1; loopX <= 5; loopX++){
+                document.write(loopX + "<br/>");
+            }
+            
+            /*
+            In this example, Statement 1 sets a variable before the loop starts(var loopX = 1).
+            Statement 2 defines the condition for the loop to run(I must be less than or equal to 5).
+            Statement 3 increases a value(loopX++)
+
+
+            Statement 1 is optional, and can be omitted, if your values are set before the loop stars.
+            */
+            document.write("<br/>Omitting the first 'for' statement");
+            var loopY = 1;
+            for(;loopY<=3;loopY++){
+                document.write("<br/>" + loopY);
+            }
+
+            //Also, you can initiate more than one value in statement 1, using commas to separate them.
+            document.write("<br/><br/>Initiating more than one value in the first statement.");
+            for(loopZ = 1, text = ""; loopZ<=7; loopZ++){
+                text += loopZ;
+                document.write("<br/>" + loopZ);
+            }
+            document.write("<br/>All loop numbers attributed in a string: " + text);
+
+            /*
+            The for loop
+
+                If statement 2 returns true, the loop will start over again, if it returns false, the loop will end.
+            Statement 2 is also optional.
+                If you ommit statement 2, you must provide a break inside the loop. Otherwise, the loop will never end.
+            
+            Statement 3: is used to change the initial variable. It can do anything, incluing negative increment(i--),
+            positive increment(i = i + 15), or anything else.
+                Statement 3 is also optional, and it can be omitted if you increment your values inside the loop.
+            */
+            var loopK = 0;
+            document.write("<br/><br/>Omitting the first and third statements.");
+            for(; loopK <= 2;){
+                document.write("<br/>" + loopK);
+                loopK++;
+            }
+
+            /*The While Loop
+            
+            The while loop repeats through a block of code, as long as a specified condition is true.
+            Syntax:
+                while(condition){
+                    code block
+                }
+            The condition can be any conditional statement that returns true of false.*/
+            var number_a = 1;
+            document.write("<br/><br/>While command");
+            while(number_a <= 10){ // the loop will continue to run as long as number_a is less than, or equal to, 10.
+                document.write("<br/>" + number_a);
+                number_a++; //each time the loop runs, it will increase by 1. If you forget to increase the variable used in the condition, the loop will never end.
+            }// Make sure that the condition in a while loop eventually becomes false.
+            
+
+            /*
+            The do...while loop
+
+            The do...while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition
+            is true, and then it will repeat the loop as long as the condition is true.
+
+            Syntax:
+                do{
+                    code block
+                }while(condition); // Note the semicolon used at the end of the do...while loop.
+            */
+            var number_b = 2;
+            document.write("<br/><br/>do...while command");
+            do{//Explanation 1: the loop will always be executed at least once, even if the condition is false
+                document.write("<br/>" + number_b);
+                number_b += 2;
+            }while(number_b <= 20);//Explanation 2: because the code block is excuted before the condition is tested
+
+            /*Break and Continue
+            
+            The break statement "jumps out" of a loop and continues executing the code after the loop.
+            */
+            document.write("<br/><br/>Break command");
+            for(number_c = 1; number_c <= 10; number_c++){
+                if(number_c == 5){
+                    break;
+                }
+                document.write("<br/>" + number_c);
+            }
+            
+            /*Continue
+            
+            The continue statement breaks only one iteration in the loop, and continues with the next*/
+            document.write("<br/><br/>Continue command");
+            for(number_c = 1; number_c <= 10; number_c++){//Inside of the block commands we can use same variables names.
+                if(number_c % 2 != 0){
+                    continue;
+                }
+                document.write("<br/>" + number_c);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Learning Javascript through Sololearn</title>
+    </head>
+    <body>
+        <script>
+            /*
+            [INTRODUCING OBJECTS]
+            Javascript Objects
+            
+            Javascript variables are containers for data values. Objects are variable too, but they can contain many values.
+            Think of an object as a list of values that are written as name:value pairs, with the names and the values separated
+            by colons.
+            
+            Example:
+            */
+            var person = {
+                name: 'John Titor', age: 43, favColor: 'Green', height: 183
+            }; //Javascript objects are containers for named values.
+            
+
+            /*
+            Object Propertiers
+                You can access object properties in two ways.
+                objectName.propertyName
+                        OR
+                objectName['propertyName']
+            */
+            document.write("Name: " + person.name + ", Age: " + person['age']);
+
+            //Javascript's built-in lenght property is used to count the number of characters in a property or string.
+            document.write("<br/>" + person.name.length);
+
+            /*
+            Object Methods
+                An object method is a property that contains a function definition. Use the following syntax to access an object method.
+                    objectName.methodName();
+            
+                As you already know, document.write() outputs data. The write() function is actually a method of the document object.
+                    document.write("This is some text");
+                
+                Methods are functions that are stored as object properties.
+
+            
+            -------------------------------------------------------------------------------------------------------------------------------
+
+            [CREATING THE OWN OBJECTS]
+            The object constructor
+
+            In the previous lesson, we created an object using the object literal(or initializer) syntax.
+            var person = {
+                name: 'John Titor', age: 43, favColor: 'Green', height: 183
+            };
+            
+            This allows you to create only a single object.
+            Sometimes, we need to set an "object type" that can be used to create a number of objects of a single type. The standard way 
+            to create an "object type" is to use an object constructor function.
+            */
+            function person2(name, age, color){
+                this.name = name;
+                this.age = age;
+                this.color = color;
+            }
+            
+            /*
+            The above function(person) is an object constructor, which takes parameters and assigns them to the object properties.
+            
+            The this keyword refers to the current object. Note that this is not a variable. It is a keyword, and its value cannot be changed.
+            
+            [CREATING OBJECTS]
+            Once you have an object constructor, you can use the new keyword to create new objects of the same type.
+            */
+
+            var p1 = new person2('Anna', 28, 'ピンク');
+            document.write("<br/>" + p1.color);
+
+            /*
+            [OBJECT INITIALIZATION]
+            Use the object literal or initializer syntax to create single objects.
+            */
+            var John = {name: 'John', age: 25};
+            var James = {name: 'James', age: 21};
+
+            /*
+            Using Object Initializers
+                Spaces and line breaks are not important. An object definition can span multiple lines.
+
+                Not matter how the object is created, the syntax for accessing the properties and methods does not change.
+            */
+            var Anna = {
+                name: 'Anna',
+                age: 28
+            };
+
+            /*
+            [ADDING METHODS]
+            Methods
+                Methods are functions that are stored as object properties.
+                Use the following syntax to create an object method:
+                    methodName : function(){code lines}
+
+                Access an object method using the following syntax:
+                    objectName.methodName();
+
+            A method is a function, belonging to an object. It can be referenced using the this keyword. The this keyword is used
+            as a referenced to the current object, meaning that you can access the objects properties and methods using it.
+
+            Defining methods is done inside the constructor function.
+            For example:
+            */
+            function person3(name, age){
+                this.name = name;
+                this.age = age;
+                this.changeName = function(name){
+                    this.name = name;
+                }
+            }
+            
+            var p2 = new person3("Yuna", 34);
+            document.write("<br/>Current name: " + p2.name);
+            p2.changeName("Yunna"); 
+            document.write("<br/>Name changed: " + p2.name);
+
+            /*In the example above, we have defined a method named changeName for our person, which is a  function, that takes
+            a parameter name and assigns it to the name property of the object.
+            this.name refers to the name preperty of the object.
+            
+            The changeName method changes the object's name property to its argument.
+            
+            Methods
+            
+            You can also define the function outside of the constructor function and associate it with the object.
+            */
+
+            function person4(name, age){
+                this.name = name;
+                this.age = age;
+                this.yearOfBirth = bornYear;
+            }
+            
+            function bornYear(){
+                return 2018 - this.age;
+            }
+
+            var p2 = new person4("Ranie", 27);
+
+            document.write("<br/>A person with " + p2.age + " years old, born in " + p2.yearOfBirth() + " age."); //call the method by the property name you specified in the constructor function, rather than the function name.
+
+            /*As you can see, we have assigned the object's yearOfBirth property to the bornYear function. The this keyword is used
+            to access the age property of the object, which is going to call the method.
+            
+            Note that it's not necessary to write the function's parentheses when assigning it to an object.*/
+        </script>
+    </body>
+</html>
