@@ -318,3 +318,309 @@ console.log("PI.toFixed(3) -> " + PI.toFixed(3));
 console.log("325678..toPrecision(2) -> " + 325678..toPrecision(2));
 console.log("2.459.toPrecision(2) -> " + 2.459.toPrecision(2));
 
+
+
+//Arithmetic Operations
+//Addition
+console.log("5 + 4.3 -> " + (5 + 4.3));
+
+//Subtraction
+console.log("6 - 11 -> " + (6 - 11));
+
+//Multiplication
+console.log("6 * 7 -> " + (6 * 7));
+
+//Division
+console.log("3/7 -> " + (3/7));
+
+//Exponentiation
+console.log("2**3 -> " + (2**3));
+
+//Modulo
+console.log("23%6 -> " + (23%6));
+console.log("23%6 -> " + (-4%3)); //The result always has the same sign as the first number
+
+
+
+//Changing the value of variables
+let points = 0;
+console.log("points -> " + points);
+points = points + 10;
+console.log("points = points + 10 -> points = " + points);
+points += 10;
+console.log("points += 10 -> points = " + points);
+points *= 10;
+console.log("points *= 10 -> points = " + points);
+points /= 2;
+console.log("points /= 2 -> points = " + points);
+points %= 17;
+console.log("points %= 17 -> points = " + points);
+
+
+//Incrementing values
+points++;
+console.log("points++ -> " + points);
+points--;
+console.log("points-- -> " + points);
+
+/*
+Difference between putting ++ operator before or after
+    variable++ -> It will return the original value then increase it 1 point
+    ++variable -> It will increase the value by 1 then return that value
+    variable-- -> It will return the original value then decrease it 1 point
+    --variable -> It will decrease the value by 1 then return that value
+*/
+
+
+//Infinity
+console.log("1e308 -> " + 1e308); //1 with 308 zeros
+console.log("2e308 -> " + 2e308);
+console.log("-1e309 -> " + -1e309); 
+console.log("Max. positive value -> " + 1.7976931348623157e+308);
+console.log("Max. negative value -> " + (-1.7976931348623157e+308));
+console.log("1/0 -> " + (1/0));
+console.log("Smallest number that Javascript can deal -> " + 5e-324);
+// Anything below this evaluates to either 5e-324 or zero
+console.log("3e-325 -> " + 3e-325);
+
+
+
+//NaN
+//NaN is an error value that is short for "Not a Number".
+console.log("'hello' * 5 -> " + 'hello' * 5);
+
+//The result by the typeof operator is rather ironic
+console.log("(ironic) typeof NaN -> " + typeof NaN);
+
+
+
+//Checking a value is a Number
+//It will return true if the value is a number that isn't Infinity, -Infinity or NaN
+console.log("Number.isFinite(1/0) -> " + Number.isFinite(1/0));
+console.log("Number.isFinite(-Infinity) -> " + Number.isFinite(-Infinity));
+console.log("Number.isFinite(NaN) -> " + Number.isFinite(NaN));
+console.log("Number.isFinite(42) -> " + Number.isFinite(42));
+
+
+
+//Type Coercion
+//It happens when the operands of an operator are of different types
+console.log("'5' * 5 -> " + ('5' * 5));
+console.log("'5' + 5 -> " + ('5' + 5));
+
+
+//Converting between Strings and Numbers
+//We can convert numbers to strings and vice versa using a variety of methods
+console.log("String to Number");
+console.log("Number('23') -> " + Number('23'));
+console.log("Number('hello') -> " + Number('hello'));
+
+//There are a few tricks that can also be used to convert a string into a number that use type coercion
+let answer = '5' * 1;
+console.log(typeof answer);
+answer = +'5';
+console.log(typeof answer);
+//These methods are very hacky and not recommended
+
+
+console.log("Number to String");
+console.log("String(3) -> " + String(3));
+console.log("3 + '' -> " + 3 + '');
+console.log("10..toString() -> " + 10..toString());
+console.log("10..toString(2) -> " + 10..toString(2));
+console.log("28101..toString(36) -> " + 28101..toString(36));
+
+
+
+//Parsing Numbers
+console.log("parseInt('1010', 2) -> " + parseInt('1010', 2)); //1010 to base 2
+console.log("parseInt('omg', 36) -> " + parseInt('omg', 36));
+console.log("parseInt('23', 10) -> " + parseInt('23', 10));
+
+const address = '221B Baker Street';
+console.log("address -> " + address);
+console.log("parseInt(address, 10) -> " + parseInt(address, 10));
+console.log("Number(address) -> " + Number(address));
+console.log("parseInt('2.4',10) -> " + parseInt('2.4',10));
+console.log("parseInt('2.9',10) -> " + parseInt('2.9',10));
+console.log("parseFloat('2.9',10) -> " + parseFloat('2.9',10));
+
+
+
+//Undefined
+//Undefined is the value given to variables that have not been assigned a value.
+
+//Null
+//Null means "no value". It can be thought of as a placeholder that JavaScript uses to say "there should be a value here, but there isn't at the moment."
+
+console.log("10 + null -> " + (10 + null));
+console.log("10 + undefined -> " + (10 + undefined));
+
+
+
+//Booleans
+console.log("Boolean('hello') -> " + Boolean('hello'));
+console.log("Boolean(42) -> " + Boolean(42));
+console.log("Boolean(0) -> " + Boolean(0));
+
+/*
+Only 9 values are always false and these are known as falsy values:
+1)          ""
+2)          ''
+3)          ``
+4)          0
+5)          -0
+6)          NaN
+7)          false
+8)          null
+9)          undefined
+*/
+
+
+//Local Operators
+//!(Logical NOT)
+console.log("!true -> " + !true);
+console.log("!0 -> " + !0);
+
+//You can use double negation(!!) to find out if a value us truthy or falsy
+console.log("!!'' -> " + !!'');
+console.log("!!'hello' -> " + !!'hello');
+console.log("!!3 -> " + !!3);
+console.log("!!NaN -> " + !!NaN);
+console.log("!!'false' -> " + !!'false');
+console.log("!!'0' -> " + !!'0');
+
+
+//&& (Logical AND)
+console.log("'shoes' && 18 -> " + ('shoes' && 18));
+console.log("'shoes' && 0 -> " + ('shoes' && 0));
+
+
+//|| (Logical OR)
+console.log("'shoes' || 0 -> " + ('shoes' || 0));
+console.log("NaN || undefined -> " + (NaN || undefined));
+
+
+
+//Lazy Evaluation
+let abc = 0;
+console.log("abc -> " + abc);
+console.log("false && (abc = 1) -> " + (false && (abc = 1)));
+console.log("abc -> " + abc);
+console.log("false || (abc = 1) -> " + (false || (abc = 1)));
+console.log("abc -> " + abc);
+
+
+//Bitwise Operators
+//Bitwise AND
+// in binary this is 1100 & 1010, so only the first digit is 1 in both cases. This returns 1000, which is 8 in binary
+console.log("12 & 10 -> " + (12 & 10));
+
+//Bitwise OR
+// in binary this is 1100 & 1010, so the first 3 digits contain a 1, returning 1110, which is 14 in binary
+console.log("12 | 10 -> " + (12 | 10));
+
+//Bitwise XOR
+// in binary this is 1100 & 1010, so only the second and third digits are exclusively 1s, so 0110 is returned, which is 6 in binary
+console.log("12 ^ 10 -> " + (12 ^ 10));
+
+
+//[ALERT]: Don't use ^ to notate exponents, for example 2^3 will not return 8. The exponente operator is **, i.e.: 2**3.
+
+console.log("1 ^ 0 -> " + (1 ^ 0));
+console.log("true ^ true -> " + (true ^ true));
+
+//Bitwise Shift Operators
+console.log("3 << 0 -> " + (3 << 0)); //3x2**0 = 3x1 = 3
+console.log("3 << 1 -> " + (3 << 1)); //3x2**1 = 3x2 = 6
+console.log("3 << 2 -> " + (3 << 2)); //3x2**2 = 3x4 = 12
+console.log("3 >> 0 -> " + (60 >> 0)); //60/2**0 = 60/1 = 60
+console.log("3 >> 1 -> " + (60 >> 1)); //60/2**1 = 60/2 = 30
+console.log("3 >> 2 -> " + (60 >> 2)); //60/2**2 = 60/4 = 15
+
+
+
+//Comparison
+//Equality
+const answer_x = 5;
+console.log("answer_x -> " + answer_x);//It's used for assigning values to variables
+
+//The correct way to check for equality is to use either a double equals operator, ==, known as "soft equality" or the triple equals operator, ===, known as hard equality".
+
+console.log("answer_x == 5 -> " + (answer_x == 5));
+
+//This seems to work fine, but unfortynally there are some slight problems when using soft equality
+
+console.log("answer_x == '5' -> " + (answer_x == '5'));
+
+console.log("'' == 0 -> " + ('' == 0));
+console.log("'' == '0' -> " + ('' == '0'));
+console.log("false == '0' -> " + (false == '0'));
+console.log("'1' == true -> " + ('1' == true));
+console.log("'2' == true -> " + ('2' == true));
+console.log("'true' == true -> " + ('true' == true));
+console.log("null == undefined -> " + (null == undefined));
+
+
+//Hard Equality
+//The hard, or strict, equality operator, ===, tests for equality but only returns true if and only if they are of same data type
+
+console.log("answer_x === 5 ->" + (answer_x === 5));
+console.log("answer_x === '5' ->" + (answer_x === '5'));
+console.log("null === undefined -> " + (null === undefined));
+
+//The only strange result produced by hard equality is this:
+console.log("(strange result) NaN === NaN -> " + (NaN === NaN));
+
+//There's a special Number method called Number.isNaN() to test it:
+console.log("Number.isNaN(NaN) -> " + Number.isNaN(NaN));
+console.log("Number.isNaN(5) -> " + Number.isNaN(5));
+
+/*
+The Number.isNaN() method is new to ES6 and replaces the global isNaN() method. This old method has the unfortunate property of reporting strings as NaN as well as NaN itself, as can be seen in the example below:
+    isNaN('hello');
+    << true
+This is because of our old nemesis, type coercion! The function first of all tries to convert the string to a number, and strings without numerals are converted to NaN:
+    Number('hello');
+    << NaN
+Because of this, the new Number.isNaN() method should always be used to check if a value is NaN.
+*/
+
+
+
+//Inequality
+//There's a soft inequality operator, != and a hard inequality operator, !==.
+
+console.log("16 != '16' -> " + (16 != '16'));
+console.log("16 !== '16' -> " + (16 !== '16'));
+
+
+//Greater than and Less than
+console.log("8 > 4 -> " + (8 > 4));
+console.log("8 < 4 -> " + (8 < 4));
+console.log("8 >= 4 -> " + (8 >= 4));
+console.log("8 >= 8 -> " + (8 >= 8));
+
+// But be careful; the equality test works in the same way as the soft equality operator:
+console.log("8 >= '8' -> " + (8 >= '8'));
+
+/*
+As you can see, type coercion means that strings can be confused with numbers. Unfortunately, there are no "hard" greater-than or equal-to operators, so an alternative way to avoid type coercion is to use a combination of the greater-than
+operator, logical OR, and a hard equality:
+*/
+
+console.log("8 > 8 || 8 === 8 -> " + (8 > 8 || 8 === 8));
+console.log("8 > '8' || 8 === '8' -> " + (8 > '8' || 8 === '8'));
+
+//There is also a similar "less-than or equal-to" operator:
+console.log("-1 <= 1 -> " + (-1 <= 1));
+console.log("-1 <= -1 -> " + (-1 <= -1));
+
+// These operators can also be used with strings, which will be alphabetically ordered to check if one string is "less than" the other:
+
+console.log("'apples' < 'bananas' -> " + ('apples' < 'bananas'));
+
+// Be careful, though, as the results are case-sensitive, and upper-case letters are considered to be "less than" lower-case letters:
+console.log("'apples' < 'Bananas' -> " + ('apples' < 'Bananas'));
+
+
