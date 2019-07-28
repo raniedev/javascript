@@ -330,3 +330,84 @@ function numerically (a,b) {
     }
 }
 */
+
+//Array Interators
+//Arrays have a number of methods that utilize callbacks to make them more flexible
+//An alternative for() method way is the forEach() method
+//forEach()
+/*
+This will loop through the array and invoke a callback function using each value as an argument. The callback function takes three parameters, 
+the first represents the value in the array, the second represents the current index and the third represent the array that the callback is 
+being called on. The example above could be written as:
+*/
+const colors = ['Green', 'Yellow', 'Blue', 'Purple', 'Grey'];
+
+colors.forEach((color, index) => console.log(`Color at position ${index} is ${color}.`));
+
+/*
+map()
+The map() method is very similar to the forEach() method. It also iterates over an array, and takes a callback function as a parameter that is 
+invoked on each item in the array. This is often used to process data returned from databases in array form, such as adding HTML tags to plain 
+text. The difference is that it returns a new array that replaces each value with the return value of the callback function. For example, we 
+can square every number in an array using the square function we wrote previously as a callback to the map() method:
+*/
+console.log([1, 2, 3].map(square));
+console.log([1, 2, 3].map(x => 2 * x));
+
+//The next example takes each item in the array and places them in uppercase inside paragraph HTML tags:
+console.log(['Green', 'Yellow', 'Blue'].map(color => `<p>${color.toUpperCase()}</p>`));
+
+console.log(['Green', 'Yellow', 'Blue'].map((color, index, array) => `Element ${index} is ${color}. There are ${array.length} items in total.`));
+
+/*
+Reduce()
+The reduce() method is another method that iterates over each value in the array, but this time it cumulatively combines each result to return 
+just a single value. The callback function is used to describe how to combine each value of the array with the running total. This is often 
+used to calculate statistics such as averages from data stored in an array. It usually takes two parameters. The first parameter represents the 
+accumulated value of all the calculations so far, and the second parameter represents the current value in the array. The following example 
+shows how to sum an array of numbers:
+*/
+console.log([1, 2, 3, 4, 5].reduce((acc, val) => acc + val));
+
+/*
+In the example above, value of acc starts as 1 (the first item in the array) then keeps track of the accumulated total. The next item in the 
+array is then added to this running total, and so on, until every item in the array has been added together and the result is returned.
+
+The reduce() method also takes a second parameter after the callback, which is the initial value of the accumulator, acc. For example, we could 
+total thenumbers in an array, but starting at 10, instead of zero:
+*/
+console.log([1, 2, 3, 4, 5].reduce((acc, val) => acc + val, 10));
+
+//Another example could be to calculate the average word length in a sentence:
+const sentence = "The quick brown fox jumped over the lazy dog";
+const words = sentence.split(" ");
+console.log(words);
+
+//Now we can use the reduce() function to calculate the total number of letters in the sentence, by starting the count at 0 and adding on the length of each word in each step:
+const total = words.reduce((acc, word) => acc + word.length, 0);
+console.log(total);
+
+//And a simple division sum tells us the average word length:
+const average = total/words.length;
+console.log(average);
+
+
+//Filter
+//The filter() method returns a new array that only contains items from the original array that return true when passed to the callback. For example, we can filter an array of numbers to just the even numbers using the following code:
+const numbers = [2, 7, 6, 5, 11, 23, 12];
+console.log(numbers);
+console.log(numbers.filter(x => x % 2 === 0));
+
+//The filter() method provides a useful way of finding all the truthy values from an array:
+const array = [ 0, 1, '0', false, true, 'hello' ];
+console.log(array.filter(Boolean));
+
+//This uses the fact that the Boolean() function will return the boolean representation of a value, so only truthy values will return true and be returned by the filter() method.
+//To find all the falsy values, the following filter can be used:
+console.log(array.filter(x => !x));
+
+/*
+This uses the not operator, ! to return the compliment of a value’s boolean representation. This means that any falsy values will return true 
+and be returned by the filter.
+There are other array methods that use callbacks that are worth investigating such as reduceRight(), every(), find() and some().
+*/
