@@ -107,17 +107,18 @@ Os métodos do objeto Array são descritos a seguir:
 //concat(arg1, arg2, ... , argn)
 var paises = ['Brasil', 'Uruguai'];
 console.log(paises);
-paises = paises.concat('Argentina', 'Paraguai');
+paises = paises.concat('Argentina', 'Paraguai'); //Acrescenta novos valores em um array
 console.log(paises);
 
-//every(função(elem, ind, obj) [,thisObjeto])
-
 /*
+every(função(elem, ind, obj) [,thisObjeto])
+
 Este método destina-se a percorrer cada um dos elementos de um array e executar uma função callback. Assim que a função encontra um elemento 
 que não satisfaça as condições impostas no corpo da função, retorna false. Caso todos os elementos do array satisfaçam a função, retorna true. 
 Não altera o array orignal e admite um argumento obrigatório, que é uma função callback, e um argumento opcional.
 
-A função é executado para cada um dos elementos do array e o valor retornado é true ou false. A função requer três argumentos que representam, respectivamente, o valor de cada elemento do array, o índice de cada elemento e o objeto Array sendo percorrido.
+A função é executado para cada um dos elementos do array e o valor retornado é true ou false. A função requer três argumentos que representam, 
+respectivamente, o valor de cada elemento do array, o índice de cada elemento e o objeto Array sendo percorrido.
 
 O argumento opcional thisObjeto define um objeto a ser usado como this na função callback. Se for omitido, é usado o objeto global sendo 
 percorrido.
@@ -128,3 +129,61 @@ function funcaoUm(elem, ind, obj){
 
 var x = paises.every(funcaoUm);
 console.log(x);
+
+/*
+filter(função(elem, ind, obj) [,thisObjeto])
+
+Este método destina-se a filtrar elementos em um array e retornar o array após aplicação do filtro. Não altera o array original e admite um 
+argumento obrigatório, que é uma função de filtragem, e um argumento opcional.
+
+A função de filtragem é executada para cada um dos elementos do array e o valor retornado é inserido em um novo array que se constitui no array 
+resultado da aplicação do filtro. A função requer três argumentos que representam, respectivamente, o valor de cada elemento do array, o índice 
+de cada elemento e o objeto Array sendo filtrado.
+
+O argumento opcional thisObjeto define um objeto a ser usado como this na função de filtragem. Se for omitido, será usado o objeto global sendo 
+filtrado.
+*/
+
+//Exemplo 1
+var array_a = [21, 3, 18, 'a', 290, 'b', 7];
+console.log(array_a);
+
+function filtrarArray(elem, ind, obj){
+    return (elem >= 18);
+};
+console.log("elem >= 18 -> " + array_a.filter(filtrarArray));
+
+//Exemplo 2
+function filtrarArray2(elem, ind, obj){
+    return (typeof elem == 'string');
+};
+console.log("typeof elem == 'string' -> " + array_a.filter(filtrarArray2));
+
+//Exemplo 3
+function filtrarArray3(elem, ind, obj){
+    return (ind < 4);
+};
+console.log("ind < 4 -> " + array_a.filter(filtrarArray3));
+
+
+/*
+forEach(função(elem, ind, obj) [,thisObjeto])
+
+Este método destina-se a percorrer cada um dos elementos de um array e executar uma função callback. Não altera o array original e admite um 
+argumento obrigatório, que é uma função callback, e um argumento opcional.
+
+A função é executada para um dos elementos do array e o valor retornado é inserido em um novo array que se constitui no array resultado da 
+aplicação da função. A função requer três argumentos que representam, respectivamente, o valor de cada elemento do array, o índice de cada 
+elemento e o objeto Array sendo percorrido.
+
+O argumento opcional thisObjeto define um objeto a ser usado como this na função callback. Se for omitido, será usado o objeto global sendo 
+percorrido.
+*/
+var array_b = [21, 3, 18, 'a', 290];
+var msg = "";
+
+function funcaoDois(elem, ind, obj){
+    msg += "array_b[" + ind + "] = " + elem + "\n";
+};
+array_b.forEach(funcaoDois);
+console.log(msg);
