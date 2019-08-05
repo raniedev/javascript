@@ -187,3 +187,226 @@ function funcaoDois(elem, ind, obj){
 };
 array_b.forEach(funcaoDois);
 console.log(msg);
+
+/*
+indexOf(elemento, [arg2, true ou false])
+
+Este método foi criado e inspirado no método de mesmo nome para Strings. Retorna o 
+índice do elemento de um array. Admite um argumento obrigatório, que é o elemento do 
+array cujo índice desejamos saber, Caso o elemento não exista no array, retorna -1.
+
+A busca do índice no array se faz levando em conta o tipo de dado, ou seja, o 
+argumento elemento deve ser um dado do mesmo tipo do dado do array. Por exemplo: 
+indexOf('9') busca somente string 9 e indexOf(9), somente o número 9.
+*/
+
+var array_c = [1, 2, 'a', 'b', '2', 'c', 1, 'a', '45'];
+var a1 = array_c.indexOf('b'); //Retorna 3
+var a2 = array_c.indexOf('a'); //Retorna 2
+var a3 = array_c.indexOf(23); //Retorna -1
+var a4 = array_c.indexOf(2); //Retorna 1
+var a5 = array_c.indexOf(45); //Retorna -1
+console.log(array_c);
+
+console.log(a1);
+console.log(a2);
+console.log(a3);
+console.log(a4);
+console.log(a5);
+
+//O segundo argumento deste método é facultativo e, quando definido, estabelece o índice do elemento do array a partir do qual (inclusive) deverá iniciar=se a busca.
+
+var b1 = array_c.indexOf(1); //Retorna 0
+var b2 = array_c.indexOf(1, 2); //Retorna 6
+
+console.log(b1);
+console.log(b2);
+
+//O terceiro argumento deste método é facultativo e admite os booleanos true ou false, sendo false o valor padrão. Quando definido true, faz a busca sem diferenciar o tipo de dado.
+
+var c1 = array_c.indexOf(45);
+var c2 = array_c.indexOf(45, 0, true);
+
+console.log(c1);
+console.log(c2); //Não suportado
+
+
+/*
+lastIndexOf(elemento, [arg2, true ou false])
+
+Este método também foi inspirado no método de mesmo nome para Strings. Retorna o índice do elemento de um array, admite os mesmos argumentos do 
+método indexOf(), mas a única diferença em relação a ese método é que retorna o último índice do elemento procurado caso haja mais de um. Caso 
+o elemento não exista no array, retorna -1.
+*/
+
+var d1 = array_c.indexOf('a'); //Retorna 2
+var d2 = array_c.lastIndexOf('a'); //Retorna 7
+
+console.log(d1);
+console.log(d2);
+
+/*
+join([arg])
+
+Este método transforma os elementos de um array em uma string. Admite um argumento opcional que se destina a criar um separador para os elementos do array. Se não for especificado o argumento, o separador adotado por padrão é a vírgula(,).
+*/
+var e1 = paises.join();
+var e2 = paises.join(' - ');
+
+console.log(e1);
+console.log(e2);
+
+/*
+map(função(elem, ind, obj) [,thisObjeto])
+
+Este método destina-se a percorrer cada um dos elementos de um array e modificá-lo conforme definido em uma função callback. Não altera o array original e admite um argumento obrigatório, que é uma função callback, e um argumento opcional.
+
+A função é executada para cada um dos elementos do array e o valor retornado é inserido em um novo array. A função requer três argumentos que representam respectivamente, o valor de cada elemento do array, o índice de cada elemento e o objeto Array sendo percorrido.
+
+O argumento opcional thisObjeto define um objeto a ser usado como this na função callback. Se for omitido, será usado o objeto global sendo percorrido.
+*/
+
+var array_d = [21, 3, 18, 290];
+function funcaoTres(elem, ind, obj){
+    return (elem = elem * 10);
+};
+var f1 = array_d.map(funcaoTres);
+console.log(array_d);
+console.log(f1);
+
+//pop()
+//Este método remove o último elemento de um array e retorna o valor que foi removido
+var array_e = [1, 2, 'a', 'b'];
+console.log(array_e);
+
+var g1 = array_e.pop();
+
+console.log(g1);
+console.log(array_e);
+console.log(array_e.length);
+
+//push(arg1, arg2, ... , argn)
+//Este método acrescenta os argumentos no final de um array e retorna a nova quantidade de elementos do array
+var g2 = array_e.push(5, 6, 7, 'm');
+console.log(array_e);
+console.log(g2);
+
+/*
+reduce(função(v1, v2, ind, arr)[,vInicial])
+
+Este método destina-se a percorrer cada um dos elementos de um array e executar uma função callback. Não altera o array original e admite um 
+argumento obrigatório, que é uma função callback, e um argumento opcional definido um valor inicial.
+
+A função é executada para cada um dos elementos do array e é retornado um valor único resultante da aplicação da função sucessivamente para 
+cada elemento do array.
+
+A função requer quatro argumentos que denominaremos, respectivamente, de v1(valor anterior), v2(valor corrente), ind(índice de cada elemento) e 
+arr(o objeto Array sendo percorrido).
+
+Se for especificado o argumento opcional valorInicial, o valor v1 será igual a ele e o valor v2, igual ao valor do primeiro elemento do array. 
+Se não for especificado o argumento opcional valorInicial, o valor v1 será igual ao valor do primeiro elemento do array e o v2, igual ao valor 
+do segundo elemento do array.
+
+Exemplo 1)
+*/
+
+var array_f = [1, 4, 7, 15];
+funcaoQuatro = function(v1, v2, ind, arr){
+    return v1 + v2;
+};
+console.log(array_f);
+
+var h1 = array_f.reduce(funcaoQuatro);
+console.log(h1);
+
+/*
+A função será chamada para cada elemento do array e retornará o seguinte. Note que para cada chamada da função, v1 é o valor anterior e v2, o valor corrente.
+- Primeira chamada: v1 = 1 e v2 = 4, retornando 1 + 4 = 5
+- Segunda chamada: v1 = 5 e v2 = 7, retornando 5 + 7 = 12
+- Terceira chamada: v1 = 12 e v2 = 15, retornando 12 + 15 = 27
+
+Exemplo 2)
+*/
+var h2 = array_f.reduce(funcaoQuatro, 100);
+console.log(h2);
+
+/*
+Nesse exemplo, definimos o valorInicial igual a 100 e a função retorna o valor como mostrado a seguir:
+- Primeira chamada: v1 = 100 e v2 = 1, retornando 100 + 1 = 101 
+- Segunda chamada: v1 = 101 e v2 = 4, retornando 101 + 4 = 105
+- Terceira chamada: v1 = 105 e v2 = 7, retornando 105 + 7 = 112
+- Quarta chamada: v1 = 112 e v2 = 15, retornando 105 + 7 = 127
+
+
+reduceRight(função(v1, v2, ind, arr)[,vInicial])
+
+Este método destina-se a percorrer cada um dos elementos de um array e executar uma função callback. Funciona de modo semelhante ao método reduce(), com a diferença que a função callback percorre o array do último para o primeiro elemento. Não altera o array original e admite um argumento obrigatório, que é uma função callback, e um argumento opcional definindo um valor inicial.
+
+A função é executada para cada um dos elementos do array e é retornado um valor único resultante da aplicação da função sucessivamente para cada elemento do array.
+
+A função requer quatro argumentos que denominanaremos, respectivamente, de v1(valor anterior), v2(valor corrente), ind(índice de cada elemento) e arr(o objeto Array sendo percorrido).
+
+Se for especificado o argumento opcional valorInicial, o valor v1 será igual a ele e o valor v2, igual ao valor do último elemento do array. Se não for especificado o argumento opcional valorInicial, o valor v1 será igual ao valor do último elemento do array e o v2, igual ao valor do penúltimo elemento do array.
+
+Exemplo 1)
+*/
+var h3 = array_f.reduceRight(funcaoQuatro);
+console.log(h3);
+
+/*
+A função será chamada para cada elemento do array e retornará o seguinte. Note que para cada chamada da função, v1 é o valor anterior e v2, o valor corrente.
+- Primeira chamada: v1 = 15 e v2 = 7, retornando 15 + 7 = 22
+- Segunda chamada: v1 = 22 e v2 = 4, retornando 22 + 4 = 26
+- Terceira chamada: v1 = 26 e v2 = 1, retornando 26 + 1 = 27
+
+Exemplo 2)
+*/
+var h4 = array_f.reduce(funcaoQuatro, 100);
+console.log(h4);
+
+/*
+Nesse exemplo, definimos o valorInicial igual a 100 e a função retorna o valor como mostrado a seguir:
+- Primeira chamada: v1 = 100 e v2 = 15, retornando 100 + 15 = 115 
+- Segunda chamada: v1 = 115 e v2 = 7, retornando 115 + 7 = 122
+- Terceira chamada: v1 = 122 e v2 = 4, retornando 122 + 4 = 126
+- Quarta chamada: v1 = 126 e v2 = 1, retornando 126 + 1 = 127
+
+
+reverse()
+Este método inverte a ordem dos elementos de um array. Não cria um novo array com os elementos invertidos, e, sim, altera o array existente:
+*/
+var array_g = [15, 'Itália', true, 3.1415, {nome: 'Alan', idade: 41}];
+console.log(array_g);
+console.log(array_g.reverse());
+/*
+shift()
+Este método remove o primeiro elemento de um array e retorna o valor que foi removido:
+*/
+var i1 = array_g.shift();
+console.log(i1);
+console.log(array_g);
+
+/*
+slice(arg1 [,arg2])
+
+Este método retorna um subarray do array. Admite um ou dois argumentos que definem o índice inicial e o final do subarray a extrair.
+
+As diretrizes de extração do subarray são:
+
+- o subarray extraído contém o elemento definido no índice inicial(arg1), mas não o elemento definido no índice final(arg2);
+- se for definido apenas um índice(arg1), o subarray extraído começa com o elemento de índice arg1 inclusive e vai até o último elemento;
+- argumentos negativos revertem o início de contagem do índice para o último elemento, ou seja, -1 é o último elemento, -2, o penúltimo, e assim por diante.
+*/
+
+var array_h = [1, 2, true, false, 'a', 'b', 7.2, 15.9];
+var j1 = array_h.slice(2, 5);
+var j2 = array_h.slice(3);
+var j3 = array_h.slice(-5, 6);
+var j4 = array_h.slice(-6, -4);
+
+console.log("---------------------------");
+console.log(array_h);
+console.log(j1);
+console.log(j2);
+console.log(j3);
+console.log(j4);
