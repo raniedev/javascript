@@ -410,3 +410,146 @@ console.log(j1);
 console.log(j2);
 console.log(j3);
 console.log(j4);
+
+/*
+some(função(elem, ind, obj) [,thisObjeto])
+
+Este método destina-se a percorrer cada um dos elementos de um array e executar uma função callback. Assim que a função encontra um elemento 
+que satisfaça as condições impostas no corpo da função, retorna true. Caso nenhum dos elementos do array satisfaça a função, esta retorna 
+false. Ele não altera o array original. Admite um argumento obrigatório, que é uma função callback, e um argumento opcional.
+
+A função é executada para cada um dos elementos do array e o valor retornado é true ou false. A função requer três argumentos que representam, 
+respectivamente, o valor de cada elemento do array, o índice de cada elemento e o objeto Array sendo percorrido.
+
+O argumento opcional thisObjeto define um objeto a ser usado como this na função callback. Se for omitido, será usado o objeto global sendo percorrido.
+*/
+var array_i = [21, 3, 18, 'a', 290];
+function funcaoCinco(elem, ind, obj){
+    return (typeof elem == 'string');
+};
+
+var k1 = array_i.some(funcaoCinco);
+console.log(k1);
+array_i[3] = 77;
+
+var k2 = array_i.some(funcaoCinco);
+console.log(k2);
+
+/*
+sort([função])
+
+Este método se destina a ordenar os elements de um array. Admite uma função como argumento opcional para definir como será processada a 
+ordenação dos elementos. Se o argumento for omitido, a ordenação será em ordem alfabética crescente. Havendo números serão transformados em 
+strings para determinar a ordem, resultando em ordenação não numérica.
+*/
+var frutas = ['Maçã', 'Abacaxi', 'Uva', 'Kiwi', 'Carambola', 'Maracujá', 'Framboesa', 'Abacate'];
+console.log(frutas);
+frutas.sort();
+console.log(frutas);
+
+var numeros = [1, 10, 100, 15, 3, -86, 65, -23, 20, 2, 99, -1, 0, 1000];
+console.log(numeros);
+numeros.sort();
+console.log(numeros);
+
+/*
+As ordenações foram feitas em ordem alfabética, por isso não funciona para os números
+
+Suponha que queremos ordenar os números do array 'numeros' em ordem numérica(e não alfabética) crescente. Nesse caso, teremos que especificar 
+uma função como argumento do método. A função compara os elementos do array e retorna um número negativo, zero ou um número positivo que se 
+constituem em uma chave para ordenar. 
+
+array.sort(function(a, b){
+    return a operador b;
+});
+
+A função de comparação admite dois argumentos normalmente chamados de a e b que representam dois elementos a serem comparados. No corpo da 
+função, definimos uma operação com a e b. O resultado da operação define a ordenação segundo o critério listado a seguir:
+
+- Se o resultado da operação for menor do que zero(um número negativo), o índice de 'a' será menor que 'b'(a antecede b);
+- Se o resultado da operação for igual a zero, 'a' e 'b' serão posicionados na sequência em que se encontram no array, respeitando-se a 
+ordenação dos demais elementos;
+- Se o resultado da operação for maior do que zero(um número positivo), o índice de 'b' será menor que de 'a'(p precede a).
+
+Conforme os critérios mostrados, o operador matemático para subtração(-) satisfaz o que queremos. Vejamos o resultado da aplicação desse 
+operador para algumas comparações entre elementos do array considerado:
+
+2 - 15 = -13 (2 antecede 15)
+100 - (-86) = 14 (-86 antecede 100)
+-23 - 99 = -122 (-23 antecede 99)
+*/
+
+var l1 = numeros.sort(function(a, b){
+    return a - b;
+});
+console.log(l1);
+
+//Para ordenar em ordem decrescente, basta fazer no corpo da função: return b - a.
+var l2 = numeros.sort(function(a, b){
+    return b - a;
+});
+console.log(l2);
+
+/*
+splice(arg1[,arg2, arg3, ... , argn])
+
+Este método se destina a inserir e/ou remover elementos de um array, isto é, podemos somente inserir, somente remover ou inserir e remover ao 
+mesmo tempo elementos em um array. Admite um argumento obrigatório e vários argumentos opcionais, cujas finalidades são descritas a seguir:
+
+- O primeiro argumento define a posição onde se iniciará a inserção ou remoção. Atenção: posição não é índice. O primeiro elemento ocupa a 
+oposição 1 e seu índice é 0;
+- O segundo argumento define a quantidade de elementos a remover. Se esse argumento for omitido, serão removidos todos os elementos do array a 
+partir da posição definida no primeiro argumento até o final do array;
+- Do terceiro argumento em diante, definimos os elementos a inserir a partir da posição definida no primeiro argumento e depois de removidos 
+tantos elementos quantos especificados no segundo argumento.
+*/
+console.log("---------------------------");
+var array_j = [2, 5, 9, 7, 1, 6, 8, 3, 10, 4];
+console.log("Global -> " + array_j);
+console.log("---------------------------");
+console.log("splice(5)");
+var m1 = array_j.splice(5);
+console.log(m1);
+console.log(array_j);
+
+console.log("          ---          ");
+console.log("splice(3, 4)");
+array_j = [2, 5, 9, 7, 1, 6, 8, 3, 10, 4];
+var m2 = array_j.splice(3, 4);
+console.log(m2);
+console.log(array_j);
+
+console.log("          ---          ");
+console.log("splice(5, 0, 13, 54, 32)");
+array_j = [2, 5, 9, 7, 1, 6, 8, 3, 10, 4];
+var m3 = array_j.splice(5, 0, 13, 54, 32);
+console.log(m3);
+console.log(array_j);
+
+console.log("          ---          ");
+console.log("splice(2, 6, 21, 43)");
+array_j = [2, 5, 9, 7, 1, 6, 8, 3, 10, 4];
+var m3 = array_j.splice(2, 6, 21, 43);
+console.log(m3);
+console.log(array_j);
+
+/*
+toString() e toLocaleString()
+
+O método toString() converte cada elemento do array em uma string e retorna uma lista dos elementos separados por vírgula. Este método tem o 
+mesmo efeito do método join() quando usado sem argumentos. O método toLocaleString() é uma versão localizada do método anterior, fazendo a 
+conversão para string e usando separadores de acordo com as características locais do dispositivo interpretador.
+*/
+console.log("---------------------------");
+var array_k = [1, 2, 10, 20, 100, 222];
+console.log(array_k);
+console.log(array_k.toString());
+console.log(array_k.toLocaleString());
+
+/*
+unshift(args)
+Este método insere elementos no início de um array e retorna a nova quantidade de elementos do array (array.length)
+*/
+
+console.log(array_k.unshift(5, 55, 555));
+console.log(array_k);
