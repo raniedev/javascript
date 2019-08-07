@@ -56,7 +56,7 @@ O método charAt() retorna o caractere da string que ocupa a posição definida 
 
 function scharAt(){
     var texto = "mau%\SR=+t$@ 098mu hjor \\\a"; //Uma string qualquer
-    var indice = Number(document.form2.indice.value); //O texto do input é salvo na variável
+    var indice = Number(document.form2.indice.value); //O texto do input é salvo na variável, Number transforma para um número
     if(isFinite(indice) && indice >= 0 && indice <= texto.length - 1){ //Se for finito, maior ou igual a 0 e menor que o tamanho possível da string, faça:
         document.form2.resultado.value = texto.charAt(indice); //Exibe no input a posição correspondente passada
     }else{
