@@ -669,7 +669,6 @@ zonaSul = new apartamentoVenda2('Zona Sul', 4, 'sim', 12, 7);
 console.log("-----------");
 console.log(zonaSul.local + "\n" + zonaSul.quartos + "\n" + zonaSul.garagem + "\n" +
             zonaSul.local + "\n" + zonaSul.quantidade + "\n" + zonaSul.vendidos);
-console.log("-----------");
 
 /* Observe que o método call chama o objeto apartamentoDescricao2 dentro do objeto apartamentoVenda2. Assim sendo, este objeto passa a conter 
 aquele e transforma-se em um novo objeto construtor para todos os dados(argumentos da função) de um imóvel. Os dois objetos foram mesclados.
@@ -677,5 +676,44 @@ aquele e transforma-se em um novo objeto construtor para todos os dados(argument
 
 apply(this, array)
 O método apply funciona de maneira semelhante ao método call mostrado anteriormente. A diferença é somente na forma como os parâmetros são 
-passados pelo método. Enquanto para o método call os parâmetros são uma lista dos valores dos argumentos do objeto separados
+passados pelo método. Enquanto para o método call os parâmetros são uma lista dos valores dos argumentos do objeto separados por vírgula, 
+para o método apply, a passagem dos parâmetros deve ser feita como um array.
+
+As três sintaxes para se criar o array de parâmetros são mostradas a seguir:
+- com o uso do sintaxe literal [par1, par2, ... , parN];
+- com o uso do operador new: new Array(par1, par2, ... , parN);
+- com o uso da propriedade arguments.
+
+Lembre-se de que a propriedade arguments é um pseudoarray dos argumentos de uma função.
 */
+
+function apartamentoDescricao3(local, quartos, garagem){
+    this.local = local,
+    this.quartos = quartos,
+    this.garagem = garagem 
+};
+function apartamentoVenda3(local, quartos, garagem, quantidade, vendidos){
+    this.local = local,
+    this.quantidade = quantidade,
+    this.vendidos = vendidos,
+    apartamentoDescricao3.apply(this, arguments);
+    //ou apartamentoDescricao3.apply(this, [local, quartos, garagem]);
+    //ou apartamentoDescricao3.apply(this, new Array(local, quartos, garagem));
+};
+
+zonaSul2 = new apartamentoVenda3('Zona Sul', 4, 'sim', 12, 7);
+
+console.log("-----------");
+console.log(zonaSul2.local + "\n" + zonaSul2.quartos + "\n" + zonaSul2.garagem + "\n" +
+            zonaSul2.local + "\n" + zonaSul2.quantidade + "\n" + zonaSul2.vendidos);
+console.log("-----------");
+
+// toString()
+// O método toString() retorna uma string mostrando o código da função.
+function apartamentoDescricao4(local, quartos, garagem){
+    this.local = local,
+    this.quartos = quartos,
+    this.garagem = garagem 
+};
+
+console.log(apartamentoDescricao4.toString());
