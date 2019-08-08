@@ -32,8 +32,8 @@
         </form>
 
         <form name="form5" action="" method="get">
-            <label>string: <input type="text" name="string1" value="abacaxi"/></label>
-            <label>comparar com: <input type="text" name="string2"  value="abacaxi"/></label>
+            <label>string: <input type="text" name="string1" value="abacaxi" size="10"/></label>
+            <label>comparar com: <input type="text" name="string2"  value="abacaxi" size="10"/></label>
             <button type="button" onclick="slocalecompare()">string.localeCompare()</button>
             <input type="text" name="resultado" class="dest bold" size="50"/>
         </form>
@@ -42,6 +42,20 @@
             <label>inicio: <input type="text" name="inicio" size="3" maxlength="3"/></label>
             <label>fim: <input type="text" name="fim" size="3" maxlength="3"/></label>
             <button type="button" onclick="sslice()">string.slice()</button>
+            <input type="text" name="resultado" class="dest bold" size="40"/>
+        </form>
+
+        <form name="form7" action="" method="get">
+            <label>inicio: <input type="text" name="inicio" size="3" maxlength="3"/></label>
+            <label>comprimento: <input type="text" name="comprimento" size="3" maxlength="3"/></label>
+            <button type="button" onclick="ssubstr()">string.substr()</button>
+            <input type="text" name="resultado" class="dest bold" size="40"/>
+        </form>
+
+        <form name="form8" action="" method="get">
+            <label>inicio: <input type="text" name="indicea" size="3" maxlength="3"/></label>
+            <label>fim: <input type="text" name="indiceb" size="3" maxlength="3"/></label>
+            <button type="button" onclick="ssubstring()">string.substring()</button>
             <input type="text" name="resultado" class="dest bold" size="40"/>
         </form>
         <script src="script.js"></script>

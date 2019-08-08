@@ -284,3 +284,134 @@ function sslice(inicio, fim){
     document.form6.resultado.value = resultado;
 };
 
+/*
+split([separador] [,limite])
+
+O método split() destina-se a criar um array de substrings extraídas de uma string. Os parâmetros separador e limite são opcionais. O primeiro 
+controla o caractere para separar as substrings do array e o segundo é um número inteiro que especifica a quantidade de itens do array. Se o 
+parâmetro separador for omitido, o array retornado conterá uma substring somente, igual à string original.
+
+Usar uma string vazia("") como separador resulta em um array constituídos pelos caracteres da strin original separados por vírgula. Usar um espaço em branc(" ") como separador resulta em um array constituído pelas substrings naturais da string original separadas por vírgula.
+*/
+
+console.log(texto9.split());
+console.log(texto9.split(''));
+console.log(texto9.split(' '));
+console.log(texto9.split('', 8));
+console.log(texto9.split(' ', 2));
+
+/*
+substr(início [,comprimento])
+
+O método substr() está em desuso em ECMA-262, prefira os métodos slice() ou substring()...
+Cria uma nova string resultante da extração de parte de uma string.
+*/
+
+function ssubstr(inicio, fim){
+    var inicio = document.form7.inicio.value;
+    var comprimento = document.form7.comprimento.value;
+    var resultado = texto9.substr(inicio, comprimento);
+    document.form7.resultado.value = resultado;
+};
+
+/*
+substring(indiceA [,indiceB])
+
+O método subtring() é semelhante ao método slice(). Uma das diferenças é o fato de que para esse método, sendo o primeiro parâmetro maior que o 
+segundo, há uma inversão automática dos parâmetros e o retorno da substring, e para aquele, uma situação destas retorna uma string vazia.
+
+Este método permite criar uma nova string resultante da extração de parte de uma string. O parâmetro indiceA indica a posição a partir da qual 
+a extração deve começar. O parâmetro opcional indiceB indica a posição na qual a extração deve parar, e se for omitido, entende-se que a 
+extração deve seguir até o final da string.
+
+O caractere na posição indiceA é incluído na extração, mas aquele na posição indiceB é excluído, ou seja, uma extração entre as posições 2 e 5 
+extrai os caracteres nas posições 2, 3 e 4.
+
+Se um dos parâmetros, tanto indiceA como indiceB, for negativo, será considerado como se fosse zero.
+Se os parâmetros indiceA e indiceB forem iguais, a substring retornada será vazia.
+Se o parâmetro indiceA for maior do que o parâmetro indiceB, haverá troca de posições, isto é,
+substring(indiceA, indiceB) == substring(indiceB, indiceA)
+*/
+
+function ssubstring(indiceA, indiceB){
+    var indiceA = document.form8.indicea.value;
+    var indiceB = document.form8.indiceb.value;
+    var resultado = texto9.substring(indiceA, indiceB);
+    document.form8.resultado.value = resultado;
+};
+
+/*
+toLowerCase()
+O método toLowerCase() retorna uma string igual à string original, mas com todos os seus caracteres em letras minúsculas.
+*/
+var texto10 = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ";
+var texto11 = "abcdefghijklmnopqrstuvwxyz";
+
+console.log(texto10.toLowerCase());
+console.log(texto11.toUpperCase());
+
+/*
+valueOf()
+O método valueOf() retorna o valor primitivo de um objeto. Esse método é usado pelos mecanismos internos da Javascript, não sendo comum seu uso 
+em desenvolvimento.
+*/
+console.log(texto9.valueOf());
+
+/*
+> Métodos HTML para strings
+
+Os métodos HTML para strings fornecem uma maneira de se gerar marcação HTML como container para uma string.
+EMBORA AMPLAMENTE SUPORTADO PELOS NAVEGADORES ATUAIS, SEU USO DEVE SER EVITADO, POIS, ALÉM DE GERAR MARCAÇÃO NÃO SEMÂNTICA, EMPREGA ELEMENTOS HTML EM DESUSO E APRESENTA SÉRIAS RESTRIÇÕES À ACESSIBILIDADE.
+
+anchor(nome)
+O método anchor() cria um elemento 'a'(âncora) para container da string. O parâmetro nome é obrigatório e define o valor do atributo name do 
+elemento.
+*/
+console.log("\nGERAR MARCAÇÃO HTML NÃO É RECOMENDADO, APENAS PARA FINS DE ESTUDO")
+var palavra = "javascript";
+console.log(palavra.anchor("js"));
+
+
+//big()
+//O método big() cria um elemento big(font aumentada) para container da string.
+console.log(palavra.big());
+
+//bold()
+//O método bold() cria um elemento b(negrito) para container da string.
+console.log(palavra.bold());
+
+//fixed()
+//O método fixed() cria um elemento tt(fonte teletipo ou monoespaçada) para container da string.
+console.log(palavra.fixed());
+
+//fontcolor()
+//O método fontcolor() cria um elemento font e seu atributo color com valor para a cor definido no parâmetro cor, para container da string. Esse elemento está em desuso
+console.log(palavra.fontcolor("#ff0000"));
+
+//fontsize(tamanho)
+//O método fontsize() cria um elemento font e seu atributo size com valor para o tamanho da fonte definido no parâmetro tamanho, para container da string. Esse elemento está em desuso.
+console.log(palavra.fontsize(7));
+
+//italics()
+//O método italics() cria um elemento i(estilo de fonte itálico) para container da string.
+console.log(palavra.italics());
+
+//link(url)
+//O método link() cria um elemento(link) e seu atributo href com valor definidono parâmetro url, para container da string.
+console.log(palavra.link("https://www.javascript.com/"));
+
+//small()
+//O método small() cria um elemento small(fonte menor) para container da string.
+console.log(palavra.small());
+
+//strike()
+//O método strike() cria um elemento strike(texto riscado) para container da string. Esse elemento está em desuso.
+console.log(palavra.strike());
+
+//sub()
+//O método sub() cria um elemento sub(texto subscrito) para container da string.
+console.log(palavra.sub());
+
+//sup()
+//O método sup() cria um elemento sup(texto supescrito) para container da string.
+console.log(palavra.sup());
