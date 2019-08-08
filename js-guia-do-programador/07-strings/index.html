@@ -17,6 +17,26 @@
             <button type="button" onclick="scharAt()">string.charAt()</button>
             <input type="text" name="resultado" size="1" maxlength="2" class="dest"/>
         </form>
+
+        <form name="form3" action="" method="get">
+            <label>Índice: <input type="text" name="indice" size="4" maxlength="4"/></label>
+            <button type="button" onclick="scharCodeAt()">string.scharCodeAt()</button>
+            <input type="text" name="resultado" size="4" maxlength="4" class="dest"/>
+        </form>
+
+        <form name="form4" action="" method="get">
+            <label>indexOf: <input type="text" name="s" size="6"/></label>
+            <label>início <input type="text" name="i" size="4" value="0"/></label>
+            <button type="button" onclick="sindexOf()">indexOf()</button>
+            <input type="text" name="resultado" size="4" maxlength="4" class="dest"/>
+        </form>
+
+        <form name="form5" action="" method="get">
+            <label>string: <input type="text" name="string1" value="abacaxi"/></label>
+            <label>comparar com: <input type="text" name="string2"  value="abacaxi"/></label>
+            <button type="button" onclick="slocalecompare()">string.localeCompare()</button>
+            <input type="text" name="resultado" class="dest bold" size="50"/>
+        </form>
         <script src="script.js"></script>
     </body>
 </html>
