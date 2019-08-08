@@ -189,4 +189,33 @@ function slocalecompare(string2){
 
 /*
 match(expreg)
+
+O método match() retorna as ocorrências da string definida no parâmetro expreg. Esse parâmetro é uma expressão regular supostamente contida na 
+string em que se faz a procura. O retorno desse método é um array contendo as ocorrências encontradas.
+
+Para entender o funcionamento desse método, é necessário conhecer as expressões.
 */
+
+var texto6 = "DjkAarstbEc43AfgBhmn";
+var sResultado = texto6.match(/[A-E]/gi);
+
+console.log(sResultado);
+console.log(sResultado[0]);
+console.log(sResultado[5]);
+
+/*
+replace(string|expreg, nova_string|função)
+
+O método replace() encontra em uma string a primeira ocorrência da string definida no parâmetro string ou expreg e substitui essa ocorrência 
+pela string definida no parâmetro nova_string ou pelo valor retornado pela função definida no parâmetro função.
+
+Ambos os parâmetros desse método são obrigatórios. O primeiro parâmetro é a substring a procurar dentro da string principal e pode ser tanto 
+uma substring como uma expressão regular definido a substring e o segundo parâmetro é a string que substituirá as ocorrências encontradas e 
+será definida em forma de uma string ou do valor de retorno de uma função.
+*/
+
+var texto7 = "Trocar o texto -> exemplo";
+console.log(texto7);
+var sResultado2 = texto7.replace('exemplo', 'foi trocado');
+console.log(sResultado2);
+
