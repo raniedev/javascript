@@ -214,8 +214,73 @@ uma substring como uma expressão regular definido a substring e o segundo parâ
 será definida em forma de uma string ou do valor de retorno de uma função.
 */
 
-var texto7 = "Trocar o texto -> exemplo";
+console.log("Trocar a primeira ocorrência da palavra: Maracujá")
+var texto7 = "Sorvete de Maracujá\nSuco de Maracujá\nMousse de Maracujá";
 console.log(texto7);
-var sResultado2 = texto7.replace('exemplo', 'foi trocado');
+var sResultado2 = texto7.replace('Maracujá', 'Morango');
 console.log(sResultado2);
+
+//Exemplo com expressão regular
+var sResultado3 = texto7.replace(/Maracujá/g, 'Morango');
+console.log(sResultado3);
+
+//Exemplo com expressão regular e função
+var sResultado4 = texto7.replace(/[aiueo]/g, function(casou, pos, string){
+    switch(casou){
+        case 'a':
+            return 'α';
+        case 'i':
+            return 'ι';
+        case 'u':
+            return 'μ';
+        case 'e':
+            return 'ε';
+        case 'o':
+            return 'σ';
+    }
+});
+
+console.log(sResultado4);
+
+/*
+search(expreg)
+
+O método search() retorna a posição da primeira ocorrência do padrão definido no parâmetro expreg. Esse parâmetro é uma expressão regular 
+supostamente contida na string em que se faz a procura. Se for fornecido um parâmetro que não seja uma expressão regular, será automaticamente 
+transformado em uma com o suo de new RegExp(valor).
+
+Se a string procurada não for encontrada na string pesquisada, o método retornará -1.
+*/
+
+var texto8 = "DjkAarstbEc43AfgBhmn";
+console.log(texto8.search(/[A-C]/));
+console.log(texto8.search('s'));
+console.log(texto8.search(/[A-E]/gi));
+console.log(texto8.search(/[m-p]/));
+
+/*
+slice(início [,fim])
+
+O método slice() permite criar uma nova string resultante da extração de parte de uma string. O parâmetro início indica a posição a partir da 
+qual a extração deve começar. O parâmetro opcional fim indica a posição na qual a extração deve parar, e se for omitido, entrende-se que a 
+extração deve seguir até o final da string.
+
+O caractere na posição início é incluído na extração, mas aquele na posição fim é excluído, ou seja, uma extração entre as posições 2 e 5 
+extrai os caracteres nas posições 2, 3 e 4.
+
+É válido definir um parâmetro fim com sinal negativo e, nesse caso, a contagem para o final da extração se faz de trás para frente na string, 
+estando o último caractere na posição -1, o penúltimo na -2, e assim por diante.
+*/
+
+var texto9 = "JavaScript é uma linguagem legal.";
+
+function sslice(inicio, fim){
+    var inicio = document.form6.inicio.value;
+    var fim = document.form6.fim.value;
+    if(fim == ''){
+        fim = texto9.length+1;
+    }
+    var resultado = texto9.slice(inicio, fim);
+    document.form6.resultado.value = resultado;
+};
 
